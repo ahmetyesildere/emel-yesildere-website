@@ -114,8 +114,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(session?.user ?? null)
 
       if (session?.user) {
-        // Tüm kullanıcılar için profile'ı yükle
-        fetchProfile(session.user.id, session.user)
+        // Tüm kullanıcılar için profile'ı yükle - loading state fetchProfile içinde false yapılacak
+        await fetchProfile(session.user.id, session.user)
       } else {
         setLoading(false)
       }
@@ -258,7 +258,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           throw error
         } else {
           console.log('✅ Profile loaded from database:', data.email, 'Role:', data.role)
+          // Profil ve user'ı aynı anda set et - böylece header'da email görünmez
           setProfile(data)
+          setUser(currentUser || user)
           setLoading(false)
           return
         }

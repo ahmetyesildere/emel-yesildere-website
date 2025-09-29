@@ -62,18 +62,28 @@ const Header = () => {
     return <Badge className="bg-gray-100 text-gray-800 text-xs">Ziyaretçi</Badge>
   }
 
-  // Kullanıcı adını al - isim yoksa email'den çıkar
+  // Kullanıcı adını al - profil yüklenene kadar loading göster
   const getUserDisplayName = () => {
+    // Profil yükleniyorsa veya profil yoksa loading göster
+    if (loading || (user && !profile)) {
+      return 'Yükleniyor...'
+    }
+    
+    // Önce isim-soyisim kombinasyonunu kontrol et
     if (profile?.first_name && profile?.last_name) {
       return `${profile.first_name} ${profile.last_name}`
     }
+    
+    // Sadece isim varsa
     if (profile?.first_name) {
       return profile.first_name
     }
-    if (user?.email) {
-      // Email'den isim çıkar (@ işaretinden önceki kısım)
-      return user.email.split('@')[0]
+    
+    // Son çare olarak email'den isim çıkar (ama bu duruma gelmemeli)
+    if (profile?.email) {
+      return profile.email.split('@')[0]
     }
+    
     return 'Kullanıcı'
   }
 
