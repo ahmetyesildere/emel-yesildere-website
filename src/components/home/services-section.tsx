@@ -5,8 +5,11 @@ import { Heart, Brain, Compass, Sparkles, ArrowRight, Clock, Users, CheckCircle 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useWhatsApp } from '@/hooks/use-whatsapp'
 
 const ServicesSection = () => {
+  const { createWhatsAppLink } = useWhatsApp()
+  
   const services = [
     {
       id: 1,
@@ -15,7 +18,6 @@ const ServicesSection = () => {
       description: 'Kişisel hedeflerinize ulaşmanız için size rehberlik ediyor, yaşam kalitenizi artırıyoruz.',
       features: ['Hedef belirleme', 'Motivasyon artırma', 'Yaşam dengesi'],
       duration: '60 dakika',
-      price: '400₺',
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200',
@@ -28,11 +30,10 @@ const ServicesSection = () => {
       description: 'Beden, zihin ve ruh bütünlüğü içinde kişisel dönüşümünüzü destekliyoruz.',
       features: ['Enerji dengeleme', 'Chakra uyumlaması', 'Ruhsal gelişim'],
       duration: '60 dakika',
-      price: '600₺',
       color: 'from-emerald-500 to-teal-500',
       bgColor: 'bg-emerald-50',
       borderColor: 'border-emerald-200',
-      popular: true
+      popular: false
     },
     {
       id: 3,
@@ -41,7 +42,6 @@ const ServicesSection = () => {
       description: 'Nefes teknikleri ile stres yönetimi, rahatlama ve iç huzuru bulmanızı sağlıyoruz.',
       features: ['Stres azaltma', 'Nefes teknikleri', 'Meditasyon rehberliği'],
       duration: '60 dakika',
-      price: '450₺',
       color: 'from-purple-500 to-indigo-500',
       bgColor: 'bg-purple-50',
       borderColor: 'border-purple-200',
@@ -54,11 +54,10 @@ const ServicesSection = () => {
       description: 'Bilinçaltınızda biriken olumsuz duygu ve inançları tespit ederek temizliyoruz.',
       features: ['Travma temizliği', 'Olumsuz inanç değişimi', 'Duygusal blokaj açma'],
       duration: '60 dakika',
-      price: '500₺',
       color: 'from-red-500 to-pink-500',
       bgColor: 'bg-red-50',
       borderColor: 'border-red-200',
-      popular: false
+      popular: true
     }
   ]
 
@@ -105,9 +104,8 @@ const ServicesSection = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
-                      <div className="flex items-center space-x-3 mt-1">
+                      <div className="flex items-center mt-1">
                         <span className="text-sm text-gray-600">{service.duration}</span>
-                        <span className="text-lg font-bold text-purple-600">{service.price}</span>
                       </div>
                     </div>
                   </div>
@@ -128,10 +126,22 @@ const ServicesSection = () => {
                   </div>
 
                   <Button 
-                    className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white`}
+                    className={`w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-0 font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
+                    onClick={() => {
+                      const link = createWhatsAppLink('consultation', undefined, service.title)
+                      if (link !== '#') {
+                        window.open(link, '_blank')
+                      }
+                    }}
                   >
-                    Randevu Al
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <svg 
+                      className="w-5 h-5 mr-2" 
+                      viewBox="0 0 24 24" 
+                      fill="currentColor"
+                    >
+                      <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    Ücretsiz Ön Görüşme
                   </Button>
                 </CardContent>
               </Card>
@@ -183,15 +193,26 @@ const ServicesSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+              className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-pulse hover:animate-none relative overflow-hidden group"
+              onClick={() => {
+                const link = createWhatsAppLink('consultation')
+                if (link !== '#') {
+                  window.open(link, '_blank')
+                }
+              }}
             >
-              <Heart className="w-5 h-5 mr-2" />
-              Ücretsiz Ön Görüşme
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <Heart className="w-5 h-5 mr-2 animate-bounce" />
+              <span className="relative z-10">Ücretsiz Ön Görüşme</span>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
             </Button>
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold"
+              className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold bg-transparent"
+              onClick={() => {
+                window.location.href = '/hizmetlerimiz'
+              }}
             >
               <Users className="w-5 h-5 mr-2" />
               Tüm Hizmetleri Gör

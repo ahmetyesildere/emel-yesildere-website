@@ -9,7 +9,7 @@ const AboutExperience = () => {
   const experienceStats = [
     {
       icon: Users,
-      number: '500+',
+      number: '100+',
       label: 'Başarılı Seans',
       description: 'Farklı yaş gruplarından müşterilerle gerçekleştirilen seanslar',
       color: 'from-blue-500 to-cyan-500'

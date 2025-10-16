@@ -11,7 +11,7 @@ const FeaturedCoaches = () => {
   const achievements = [
     {
       icon: Users,
-      number: '500+',
+      number: '100+',
       label: 'Mutlu Müşteri',
       color: 'from-blue-500 to-cyan-500'
     },
@@ -123,7 +123,7 @@ const FeaturedCoaches = () => {
                   <CheckCircle className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900">500+</div>
+                  <div className="font-bold text-gray-900">100+</div>
                   <div className="text-xs text-gray-600">Başarılı Seans</div>
                 </div>
               </div>

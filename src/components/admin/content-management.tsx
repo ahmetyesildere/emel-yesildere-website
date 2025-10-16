@@ -35,7 +35,7 @@ const ContentManagement = () => {
       backgroundImage: '/images/hero-bg.jpg'
     },
     stats: [
-      { label: 'Mutlu Müşteri', value: '500+', icon: 'users' },
+      { label: 'Mutlu Müşteri', value: '100+', icon: 'users' },
       { label: 'Başarılı Seans', value: '2000+', icon: 'calendar' },
       { label: 'Deneyim Yılı', value: '3+', icon: 'award' },
       { label: 'Memnuniyet Oranı', value: '%98', icon: 'heart' }

@@ -5,8 +5,10 @@ import { Calendar, MessageCircle, Heart, Sparkles, ArrowRight, CheckCircle, Cloc
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { useWhatsApp } from '@/hooks/use-whatsapp'
 
 const HowItWorks = () => {
+  const { createWhatsAppLink } = useWhatsApp()
   const steps = [
     {
       id: 1,
@@ -67,7 +69,7 @@ const HowItWorks = () => {
     {
       icon: CheckCircle,
       title: 'Kanıtlanmış Yöntem',
-      description: '500+ başarılı seans deneyimi'
+      description: '100+ başarılı seans deneyimi'
     }
   ]
 
@@ -201,7 +203,13 @@ const HowItWorks = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="outline" className="border-purple-300 text-purple-700 hover:bg-purple-50">
+            <Button 
+              variant="outline" 
+              className="border-purple-300 text-purple-700 hover:bg-purple-50"
+              onClick={() => {
+                window.location.href = '/sss'
+              }}
+            >
               Tüm SSS'leri Gör
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
@@ -219,6 +227,12 @@ const HowItWorks = () => {
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold"
+            onClick={() => {
+              const link = createWhatsAppLink('consultation')
+              if (link !== '#') {
+                window.open(link, '_blank')
+              }
+            }}
           >
             <MessageCircle className="w-5 h-5 mr-2" />
             Ücretsiz Ön Görüşme Al

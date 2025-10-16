@@ -99,7 +99,7 @@ const ServicesCTA = () => {
             </span>
           </h2>
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
-            500+ kişi gibi siz de yaşamınızda pozitif değişiklikler yaratabilirsiniz. 
+            100+ kişi gibi siz de yaşamınızda pozitif değişiklikler yaratabilirsiniz. 
             İlk adımı atmak için aşağıdaki seçeneklerden birini seçin.
           </p>
         </div>

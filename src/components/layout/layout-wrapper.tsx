@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import WhatsAppWidget from "@/components/ui/whatsapp-widget";
 
 interface LayoutWrapperProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 };

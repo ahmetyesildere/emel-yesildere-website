@@ -26,7 +26,7 @@ const BlogHero = () => {
   const quickStats = [
     { number: '150+', label: 'Blog Yazısı', icon: BookOpen },
     { number: '25K+', label: 'Okuyucu', icon: User },
-    { number: '500+', label: 'Yorum', icon: TrendingUp },
+    { number: '100+', label: 'Yorum', icon: TrendingUp },
     { number: '12', label: 'Kategori', icon: Tag }
   ]
 

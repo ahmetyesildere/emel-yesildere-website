@@ -48,7 +48,7 @@ const ContactHero = () => {
   const quickStats = [
     { number: '24/7', label: 'Destek Hattı' },
     { number: '< 2 saat', label: 'Yanıt Süresi' },
-    { number: '500+', label: 'Mutlu Müşteri' },
+    { number: '100+', label: 'Mutlu Müşteri' },
     { number: '4.9/5', label: 'Memnuniyet' }
   ]
 
@@ -208,7 +208,7 @@ const ContactHero = () => {
             <div className="h-6 w-px bg-gray-300"></div>
             <div className="flex items-center space-x-2">
               <Heart className="w-5 h-5 text-red-500" />
-              <span className="text-gray-600">500+ Mutlu Müşteri</span>
+              <span className="text-gray-600">100+ Mutlu Müşteri</span>
             </div>
           </div>
           <p className="text-gray-600">

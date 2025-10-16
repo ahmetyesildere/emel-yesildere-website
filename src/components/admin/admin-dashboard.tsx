@@ -13,9 +13,13 @@ import DashboardOverview from './dashboard/dashboard-overview'
 import UsersManagement from './users/users-management'
 import SessionsManagement from './sessions/sessions-management'
 import PaymentsManagement from './payments/payments-management'
-import MessagesManagement from './messages/messages-management'
+
 import BlogManagement from './blog/blog-management'
 import AboutManagement from './about/about-management'
+import TestimonialsManagement from './testimonials/testimonials-management'
+import VideoManagement from './video/video-management'
+import WhatsAppManagement from './whatsapp/whatsapp-management'
+
 
 
 
@@ -354,6 +358,9 @@ const AdminDashboard = () => {
     { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
     { id: 'users', label: 'Kullanıcılar', icon: Users },
     { id: 'sessions', label: 'Seanslar', icon: Calendar },
+    { id: 'testimonials', label: 'Yorumlar', icon: MessageSquare },
+    { id: 'video', label: 'Video', icon: FileText },
+    { id: 'whatsapp', label: 'WhatsApp', icon: MessageSquare },
     { id: 'blog', label: 'Blog', icon: FileText },
     { id: 'about', label: 'Hakkımda', icon: Users },
     { id: 'contact', label: 'İletişim', icon: MessageSquare },
@@ -458,6 +465,18 @@ const AdminDashboard = () => {
           </div>
         )}
 
+        {activeTab === 'video' && (
+          <div className="px-6 pb-6">
+            <VideoManagement />
+          </div>
+        )}
+
+        {activeTab === 'whatsapp' && (
+          <div className="px-6 pb-6">
+            <WhatsAppManagement />
+          </div>
+        )}
+
         {activeTab === 'about' && (
           <div className="px-6 pb-6">
             <AboutManagement />
@@ -467,6 +486,12 @@ const AdminDashboard = () => {
         {activeTab === 'contact' && (
           <div className="px-6 pb-6">
             <ContactMessages />
+          </div>
+        )}
+
+        {activeTab === 'testimonials' && (
+          <div className="px-6 pb-6">
+            <TestimonialsManagement />
           </div>
         )}
 
