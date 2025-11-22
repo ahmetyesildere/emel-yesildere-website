@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: emel-yesildere-website
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        value: https://djsxvpwbpqmqefvksnlg.supabase.co
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqc3h2cHdicHFtcWVmdmtzbmxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1MTk3MTksImV4cCI6MjA2OTA5NTcxOX0.UQHj6OeYXAMhbWIefEibyjcfceFj2ysup4DQqVwigvM
